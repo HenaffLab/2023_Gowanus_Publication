@@ -18,7 +18,7 @@ suppressPackageStartupMessages(library(gridExtra))
 
 ```{r}
 # Plot defining 13 known BGCs
-pdf(file="PDF_Images/Fig7B.pdf", width=8, height=6)
+pdf(file="PDF_Images/Fig4B.pdf", width=8, height=6)
 bgc <- read.csv("data/BGC_def.csv")
 bgc$Link <- NULL
 bgc_df = melt(bgc, id = c("BGC_ID", "Type"))
@@ -60,7 +60,7 @@ a2<- ggplot(df.BGC, aes(fill=variable, x=value, y=BGC_Type)) +
 ```
 
 ```{r}
-pdf(file="PDF_Images/Fig7A.pdf", width=8, height=6)
+pdf(file="PDF_Images/Fig4A.pdf", width=8, height=6)
 grid.arrange(a1, a2,
     widths=c(0.4,0.55),
     ncol=2
