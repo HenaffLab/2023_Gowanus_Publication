@@ -1,0 +1,205 @@
+---
+title: "Figure2"
+author: "Chandrima Bhattacharya"
+date: "11/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE}
+#Importing Necessary Libraries for the Code
+suppressPackageStartupMessages(suppressWarnings(library(ggplot2)))
+suppressPackageStartupMessages(suppressWarnings(library(parallel)))
+suppressPackageStartupMessages(suppressWarnings(library(Vennerable)))
+suppressPackageStartupMessages(suppressWarnings(library(graph)))
+suppressPackageStartupMessages(suppressWarnings(library(vegan)))
+suppressPackageStartupMessages(suppressWarnings(library(plyr)))
+suppressPackageStartupMessages(suppressWarnings(library(corrplot)))
+suppressPackageStartupMessages(suppressWarnings(library(reshape)))
+suppressPackageStartupMessages(suppressWarnings(library(tidyverse)))
+suppressPackageStartupMessages(suppressWarnings(library(umap)))
+suppressPackageStartupMessages(suppressWarnings(library(RColorBrewer)))
+suppressPackageStartupMessages(suppressWarnings(library(circlize)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
+suppressPackageStartupMessages(suppressWarnings(library(data.table)))
+suppressPackageStartupMessages(suppressWarnings(library(plotly)))
+suppressPackageStartupMessages(suppressWarnings(library(raincloudplots)))
+suppressPackageStartupMessages(suppressWarnings(library(ggpubr)))
+```
+
+
+```{r}
+#Defining color shades
+color_blue = colorRamp2(c(0, 0.00001, 0.0001, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2), c("#ffffe5", "#edf8b1", "#c7e9b4", "#7fcdbb", "#41b6c4",  "#1d91c0", "#225ea8", "#253494",  "#081d58"))
+color_multi =  c("Sediment_Spring15"="pink","Sediment_Winter14"="aquamarine4", "Core_7Street"="coral2")
+```
+
+```{r}
+#Importing data
+total_metadata <- read.csv("data/Gowanus_Metadata.csv")
+total_metadata <- total_metadata %>%
+    mutate(type = recode(type, "Spring15" = 'Sediment_Spring15', "Winter14" = 'Sediment_Winter14', "7Street" =  'Core_7Street' ))
+total_taxa <- read.csv("data/Gowanus_Metaphlan3.csv")
+mean <- sweep(total_taxa[, -1], MARGIN=1, FUN="/", STATS=rowSums(total_taxa[,-1]))
+mns <- colMeans(mean, na.rm=TRUE)
+mean <- mean[,order(-mns)]
+rownames(mean) <- total_taxa$Species
+metaphlan_data = data.frame(X1 = row.names(mean), mean)
+meta_taxa <- merge(total_metadata, metaphlan_data, by.x='Sample', by.y='X1')
+downsample <- read.csv("data/species_40k_depth.csv")
+down_taxa <- merge(total_metadata, downsample , by.y='clade_name', by.x='Sample')
+```
+
+```{r}
+#Correlation plot for total Samples
+pdf(file="PDF_Images/Supp2.pdf", width=7, height=6)
+mat <- as.data.frame(t(meta_taxa[17:471]))
+colnames(mat) <- meta_taxa$Rename
+rownames(mat) <- colnames(meta_taxa[17:471])
+taxa_corr <- cor(mat, method="kendall")
+#windowsFonts()
+par(family="sans")
+corrplot(taxa_corr, tl.col = "black", order = "hclust", hclust.method = "average", addrect = 2, tl.cex = 0.7)
+dev.off()
+```
+
+```{r echo=FALSE}
+#Dim Reduction plot for total Samples
+pdf(file="PDF_Images/Fig2A.pdf", width=7, height=6)
+set.seed(0)
+df.data = meta_taxa[17:471]
+Sample_Type = meta_taxa[, "type"]
+Sample_Names = meta_taxa$Rename
+df.umap = umap(df.data, n_components=2)
+df_out = as.data.frame(df.umap$layout)
+colnames(df_out) <- c("UMAP1", "UMAP2")
+#options(repr.plot.width = 3.5, repr.plot.height = 3.5)
+g <- ggplot(df_out, aes(x=UMAP1,y=UMAP2,color=Sample_Type)) +
+geom_jitter(size=1.5) +  scale_x_discrete(expand=c(0.6, 0.6))  +
+  scale_color_manual(values = color_multi) + stat_conf_ellipse(level=.9999) +
+  ggtitle("Microbial Species Location against Sample Type")
+plot(g, family="sans")
+dev.off()
+```
+
+```{r echo=FALSE}
+#Dim Reduction plot for downsampled Samples
+pdf(file="PDF_Images/Supp1.pdf", width=7, height=6)
+set.seed(0)
+df.data = down_taxa[17:257]
+type = down_taxa[, "type"]
+Sample_Names = down_taxa$Rename
+df.umap = umap(df.data, n_components=2)
+df_out = as.data.frame(df.umap$layout)
+colnames(df_out) <- c("UMAP1", "UMAP2")
+#options(repr.plot.width = 3.5, repr.plot.height = 3.5)
+g <- ggplot(df_out, aes(x=UMAP1,y=UMAP2,color=Sample_Names)) +
+geom_jitter(size=1.5) +  scale_x_discrete(expand=c(0.6, 0.6))  + theme(legend.position = c(0.8, 0.2)) +
+  scale_color_manual(values = color_multi) + stat_conf_ellipse(level=.9999) +
+  ggtitle("Microbial Species Location against Downsampled Sample_Type")
+plot(g, family="sans")
+dev.off()
+```
+
+```{r}
+#Making venn diagram for richness
+pdf(file="PDF_Images/Fig2B.pdf", width=6, height=6)
+sum_taxa <- meta_taxa[c(16, 16:471)]
+sum_taxa <- ddply(sum_taxa, "type", numcolwise(sum))
+names <- sum_taxa$type
+sum_taxa <- data.frame(t(sum_taxa[,-1] %>% mutate_if(is.numeric, ~1 * (. > 0))))
+colnames(sum_taxa) <- names
+names <- rownames(sum_taxa)
+rownames(sum_taxa) <- NULL
+sum_taxa <- cbind(names,sum_taxa)
+S7 <- subset(sum_taxa, `Core_7Street`==1)$names
+SG <- subset(sum_taxa, `Sediment_Winter14`== 1)$names
+SD <- subset(sum_taxa, `Sediment_Spring15`==1)$names
+VennRaw <- Venn(list("total_7Street"=S7, "Sediment_Winter14"=SG, "Sediment_Spring15"=SD))
+plot(VennRaw, doWeights = TRUE, type="circles")
+dev.off()
+```
+
+
+```{r}
+#Calculating alpha diversity
+meta_taxa$alpha_simpson <-  diversity(total_taxa[, -1], index = "simpson")
+meta_taxa$alpha_shannon <-  diversity(total_taxa[, -1], index = "shannon")
+meta_taxa$alpha_invsimpson <- diversity(total_taxa[,-1], index = "invsimpson")
+```
+
+```{r}
+#Defining raincloud plots
+set.seed(321)
+#df_2x3 <- data.frame(matrix(ncol = 4, nrow = 0))
+#x <- c("y_axis", "x_axis", "id", "group")
+#colnames(df_2x3) <- x
+y_axis <- c(meta_taxa$alpha_shannon[(meta_taxa$type=="Core_7Street")], meta_taxa$alpha_simpson[(meta_taxa$type=="Core_7Street")], 
+meta_taxa$alpha_shannon[(meta_taxa$type=="Sediment_Winter14")], 
+meta_taxa$alpha_simpson[(meta_taxa$type=="Sediment_Winter14")],
+meta_taxa$alpha_shannon[(meta_taxa$type=="Sediment_Spring15")], 
+meta_taxa$alpha_simpson[(meta_taxa$type=="Sediment_Spring15")])
+x_axis <- c(rep(1.0, 5), rep(1.01, 5), rep(2.0, 14), rep(2.01, 14), rep(3.0, 18), rep(3.01, 18))
+id <- c(factor(rep(1:5,2)), factor(rep(1:14,2)), factor(rep(1:18,2)))
+group <- c(rep("Shannon",5), rep("Simpson",5), rep("Shannon",14), rep("Simpson",14), rep("Shannon",18), rep("Simpson",18)) 
+jit <- jitter(x_axis, amount = 0.05)
+df_2x3 <- data.frame(y_axis, x_axis, id, group, jit)
+```
+
+
+```{r}
+#Making raincloud plots for alpha diversity
+pdf(file="PDF_Images/Fig2C.pdf", width=6, height=4)
+g<-raincloud_2x3_repmes(
+  data = df_2x3, 
+  colors = (c("#f16913","coral2","#c7e9b4","aquamarine4","pink","#7f2704")), 
+  fills = (c("#f16913","coral2","#c7e9b4","#74c476","pink","#7f2704")), 
+  size = 1, 
+  alpha = .6, 
+  ort = 'v') +
+scale_x_continuous(breaks=c(1,2,3), labels=c("total_7Street", "Sediment_Winter14", "Sediment_Spring15")) +
+  #scale_y_continuous(breaks=c(1,2), labels=c("Simpson", "Shannon")) +
+  xlab("Sample_Type") + 
+  ylab("Alpha Diversity Stotal") +
+  theme_classic()
+plot(g, family="sans")
+dev.off()
+```
+
+```{r}
+kruskal.test(alpha_simpson ~ type, data = meta_taxa)
+```
+
+```{r}
+kruskal.test(alpha_shannon ~ type, data = meta_taxa)
+```
+
+```{r}
+pairwise.wilcox.test(meta_taxa$alpha_simpson, meta_taxa$type)
+```
+
+```{r}
+pairwise.wilcox.test(meta_taxa$alpha_shannon, meta_taxa$type)
+```
+
+
+
+
+
+```{r}
+#Calculating Beta-diversity
+pdf(file="PDF_Images/Fig2D.pdf", width=7, height=6)
+beta_dist <- vegdist(total_taxa[, -1], index = "bray")
+mds <- metaMDS(beta_dist)
+mds_data <- as.data.frame(mds$points)
+mds_data$Sample <- total_taxa$Species
+mds_data <- dplyr::left_join(mds_data, total_metadata)
+g <- ggplot(mds_data, aes(x = MDS1, y = MDS2, color = type)) + geom_point() + ggtitle("Bray Curtis Beta Diversity") + stat_conf_ellipse(level = .9999) +
+  scale_color_manual(values = color_multi) 
+plot(g, family="sans")
+dev.off()
+```
+
