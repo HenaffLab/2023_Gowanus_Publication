@@ -1,0 +1,67 @@
+Sample,Rename,Location,Geolocation,GeoLocation Coordinates,Depth_Feet,Loc_Depth,Depth,Avg_Depth,Sewage_Zone,Date,Year,Season,Study,Type,type
+Apr2015_GCSS01_03222016_S15,GCSS01_Apr15,Gowanus,1,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS01-A_03222016_S29,GCSS01_Apr15_Rep1,Gowanus,1,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,Control,Spring15
+Apr2015_GCSS01-B_03222016_S30,GCSS01_Apr15_Rep2,Gowanus,1,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,Control,Spring15
+Apr2015_GCSS02_03222016_S16,GCSS02_Apr15,Gowanus,2,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS03_03222016_S17,GCSS03_Apr15,Gowanus,3,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS04_03222016_S18,GCSS04_Apr15,Gowanus,4,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS05_03222016_S19,GCSS05_Apr15,Gowanus,5,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS05-A_03222016_S31,GCSS05_Apr15_Rep1,Gowanus,5,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,Control,Spring15
+Apr2015_GCSS05-B_03222016_S32,GCSS05_Apr15_Rep2,Gowanus,5,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,Control,Spring15
+Apr2015_GCSS06_03222016_S20,GCSS06_Apr15,Gowanus,6,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS07_03222016_S21,GCSS07_Apr15,Gowanus,7,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS08_03222016_S22,GCSS08_Apr15,Gowanus,8,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS09_03222016_S23,GCSS09_Apr15,Gowanus,9,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS10_03222016_S24,GCSS10_Apr15,Gowanus,10,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS11_03222016_S25,GCSS11_Apr15,Gowanus,11,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS12_03222016_S26,GCSS12_Apr15,Gowanus,12,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS13_03222016_S27,GCSS13_Apr15,Gowanus,13,,,,,,Non-sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Apr2015_GCSS14_03222016_S28,GCSS14_Apr15,Gowanus,14,,,,,,Sewage,15-Apr,2015,Spring15,LongSamples,,Spring15
+Dec2014_GCSS01_03222016_S1,GCSS01_Dec14,Gowanus,1,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS02_03222016_S2,GCSS02_Dec14,Gowanus,2,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS03_03222016_S3,GCSS03_Dec14,Gowanus,3,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS04_03222016_S4,GCSS04_Dec14,Gowanus,4,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS05_03222016_S5,GCSS05_Dec14,Gowanus,5,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS06_03222016_S6,GCSS06_Dec14,Gowanus,6,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS07_03222016_S7,GCSS07_Dec14,Gowanus,7,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS08_03222016_S8,GCSS08_Dec14,Gowanus,8,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS09_03222016_S9,GCSS09_Dec14,Gowanus,9,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS10_03222016_S10,GCSS10_Dec14,Gowanus,10,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS11_03222016_S11,GCSS11_Dec14,Gowanus,11,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS12_03222016_S12,GCSS12_Dec14,Gowanus,12,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS13_03222016_S13,GCSS13_Dec14,Gowanus,13,,,,,,Non-sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+Dec2014_GCSS14_03222016_S14,GCSS14_Dec14,Gowanus,14,,,,,,Sewage,14-Dec,2014,Winter14,LongSamples,,Winter14
+GC_core_1_S1,7Str_2.7s_S1,7 Street,16,,2-3.8,Core2-Shallow,Shallow,2.9,,,,,Core Sample,,7Street
+GC_core_2_S2,7Str_2.7l_S2,7 Street,16,,2-3.8,Core2-Shallow,Shallow,2.9,,,,,Core Sample,,7Street
+GC_core_3_S3,7Str_8.0l_S3,7 Street,16,,7-9.0,Core2-Shallow,Shallow,8,,,,,Core Sample,,7Street
+GC_core_4_S4,7Str_8.0s_S4,7 Street,16,,7-9.0,Core2-Shallow,Shallow,8,,,,,Core Sample,,7Street
+GC_core_5_S5,7Str_9.3l_S5,7 Street,16,,9-9.6,Core2-Shallow,Shallow,9.3,,,,,Core Sample,,7Street
+GC_core_8_S6,Gowanus_0.25_S6,Gowanus,15,,0-0.5,Core1-Shallow,Shallow,0.25,,,,,Core Sample,,
+GC_core_9_S7,Gowanus_1.25_S7,Gowanus,15,,1-1.5,Core1-Shallow,Shallow,1.25,,,,,Core Sample,,
+GC_core_10_S8,Gowanus_2.25_S8,Gowanus,15,,2-2.5,Core1-Shallow,Shallow,2.25,,,,,Core Sample,,
+GC_core_11_S9,Gowanus_5.25_S9,Gowanus,15,,5-5.5,Core1-Shallow,Shallow,5.25,,,,,Core Sample,,
+GC_core_12_S10,Gowanus_6.25_S10,Gowanus,15,,6-6.5,Core1-Shallow,Shallow,6.25,,,,,Core Sample,,
+GC_core_13_S11,Gowanus_7.25_S11,Gowanus,15,,7-7.5,Core1-Shallow,Shallow,7.25,,,,,Core Sample,,
+GC_core_14_S12,Gowanus_8.25_S12,Gowanus,15,,8-8.5,Core1-Shallow,Shallow,8.25,,,,,Core Sample,,
+GC_core_16_S13,Gowanus_10.25_S13,Gowanus,15,,10-10.5,Core1-Shallow,Shallow,10.25,,,,,Core Sample,,
+GC_core_18_S14,Gowanus_12.25_S14,Gowanus,15,,12-12.5,Core1-Deep,Deep,12.25,,,,,Core Sample,,
+GC_core_19_S15,Gowanus_13.25_S15,Gowanus,15,,13-13.5,Core1-Deep,Deep,13.25,,,,,Core Sample,,
+GC_core_20_S16,Gowanus_14.25_S16,Gowanus,15,,14-14.5,Core1-Deep,Deep,14.25,,,,,Core Sample,,
+GC_core_21_S17,Gowanus_15.25_S17,Gowanus,15,,15-15.5,Core1-Deep,Deep,15.25,,,,,Core Sample,,
+GC_core_22_S18,Gowanus_16.25_S18,Gowanus,15,,16-16.5,Core1-Deep,Deep,16.25,,,,,Core Sample,,
+GC_core_23_S19,Gowanus_17.25_S19,Gowanus,15,,17-17.5,Core1-Deep,Deep,17.25,,,,,Core Sample,,
+GC_core_24_S20,Gowanus_18.25_S20,Gowanus,15,,18-18.5,Core1-Deep,Deep,18.25,,,,,Core Sample,,
+SRR1750093,GCSS01_Jun14,Gowanus,1,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750094,GCSS02_Jun14,Gowanus,2,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750095,GCSS03_Jun14,Gowanus,3,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750096,GCSS04_Jun14,Gowanus,4,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750097,GCSS05_Jun14,Gowanus,5,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750098,GCSS06_Jun14,Gowanus,6,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750099,GCSS07_Jun14,Gowanus,7,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750100,GCSS08_Jun14,Gowanus,8,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750101,GCSS09_Jun14,Gowanus,9,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750102,GCSS10_Jun14,Gowanus,10,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750103,GCSS11_Jun14,Gowanus,11,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750104,GCSS12_Jun14,Gowanus,12,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750105,GCSS13_Jun14,Gowanus,13,,,,,,Non-sewage,14-Jun,2014,Summer14,PathoMap,,Summer14
+SRR1750106,GCSS14_Jun14,Gowanus,14,,,,,,Sewage,14-Jun,2014,Summer14,PathoMap,,Summer14

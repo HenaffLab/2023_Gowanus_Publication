@@ -1,0 +1,72 @@
+from,to
+Aromatic Compound Degradation,Benzoate Degradation
+Aromatic Compound Degradation,Benzoyl-CoA Degradation
+Aromatic Compound Degradation,Catechol Degradation
+Aromatic Compound Degradation,Chloroaromatic Compound Degradation
+Aromatic Compound Degradation,Gallate Degradation
+Aromatic Compound Degradation,Mandelate Degradation
+Aromatic Compound Degradation,Naphthalene Degradation
+Aromatic Compound Degradation,Nicotinate Degradation
+Aromatic Compound Degradation,Nitroaromatic Compound Degradation 
+Aromatic Compound Degradation,Phenolic Compound Degradation
+Aromatic Compound Degradation,Toluene Degradation
+Aromatic Compound Degradation,Urate Degradation
+Aromatic Compound Degradation,Vanillin Degradation
+Nitroaromatic Compound Degradation ,Nitrobenzoate Degradation
+Phenolic Compound Degradation,Phenylacetate Degradation
+Phenolic Compound Degradation,Phenylpropanoid Derivative Degradation
+Phenolic Compound Degradation,Protocatechuate Degradation
+Phenolic Compound Degradation,s-Triazine Degredation
+Chloroaromatic Compound Degradation,Chlorobenzoate Degradation
+Benzoate Degradation,meta cleavage pathway of aromatic compounds
+Benzoyl-CoA Degradation,benzoyl-CoA degradation I (aerobic)
+Benzoyl-CoA Degradation,benzoyl-CoA degradation II (anaerobic)
+Catechol Degradation,aromatic compounds degradation via &beta;-ketoadipate
+Catechol Degradation,catechol degradation I (meta-cleavage pathway)
+Catechol Degradation,catechol degradation II (meta-cleavage pathway)
+Catechol Degradation,catechol degradation III (ortho-cleavage pathway)
+Catechol Degradation,catechol degradation to &beta;-ketoadipate
+Catechol Degradation,catechol degradation to 2-oxopent-4-enoate II
+Chlorobenzoate Degradation,4-chlorobenzoate degradation
+Chloroaromatic Compound Degradation,chlorosalicylate degradation
+Gallate Degradation,gallate degradation I
+Gallate Degradation,gallate degradation II
+Gallate Degradation,gallate degradation III (anaerobic)
+Mandelate Degradation,mandelate degradation I
+Mandelate Degradation,mandelate degradation to acetyl-CoA
+Naphthalene Degradation,naphthalene degradation (aerobic)
+Nicotinate Degradation,nicotinate degradation I
+Nicotinate Degradation,nicotinate degradation III
+Nitrobenzoate Degradation,2-nitrobenzoate degradation I
+Phenylacetate Degradation,phenylacetate degradation I (aerobic)
+Phenylpropanoid Derivative Degradation,3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation
+Phenylpropanoid Derivative Degradation,3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate
+Phenylpropanoid Derivative Degradation,3-phenylpropanoate degradation
+Phenylpropanoid Derivative Degradation,4-coumarate degradation (anaerobic)
+Phenylpropanoid Derivative Degradation,superpathway of phenylethylamine degradation
+Protocatechuate Degradation,protocatechuate degradation I (meta-cleavage pathway)
+Protocatechuate Degradation,protocatechuate degradation II (ortho-cleavage pathway)
+s-Triazine Degredation,superpathway of atrazine degradation
+Phenolic Compound Degradation,cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate
+Toluene Degradation,superpathway of aerobic toluene degradation
+Toluene Degradation,toluene degradation I (aerobic) (via o-cresol)
+Toluene Degradation,toluene degradation II (aerobic) (via 4-methylcatechol)
+Toluene Degradation,toluene degradation III (aerobic) (via p-cresol)
+Toluene Degradation,toluene degradation IV (aerobic) (via catechol)
+Toluene Degradation,toluene degradation VI (anaerobic)
+Urate Degradation,superpathway of purines degradation in plants
+Vanillin Degradation,superpathway of vanillin and vanillate degradation
+Vanillin Degradation,vanillin and vanillate degradation I
+Vanillin Degradation,vanillin and vanillate degradation II
+Aromatic Compound Degradation,2-aminophenol degradation
+Aromatic Compound Degradation,4-hydroxyacetophenone degradation
+Aromatic Compound Degradation,4-hydroxyphenylacetate degradation
+Aromatic Compound Degradation,4-methylcatechol degradation (ortho cleavage)
+Aromatic Compound Degradation,4-nitrophenol degradation II
+Aromatic Compound Degradation,anaerobic aromatic compound degradation (Thauera aromatica)
+Aromatic Compound Degradation,biphenyl degradation
+Aromatic Compound Degradation,methylgallate degradation
+Aromatic Compound Degradation,naphthalene degradation to acetyl-CoA
+Aromatic Compound Degradation,p-cumate degradation
+Aromatic Compound Degradation,superpathway of salicylate degradation
+Aromatic Compound Degradation,syringate degradation

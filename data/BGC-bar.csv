@@ -1,0 +1,15 @@
+BGC_Type,Condition,Singleton,Non_singleton
+NRPS,Number of BGC,273,82
+NRPS_PKS_Hybrid,Number of BGC,1,3
+PKSI,Number of BGC,59,29
+PKS_Others,Number of BGC,148,185
+Terpene,Number of BGC,207,120
+RiPPs,Number of BGC,237,267
+Other,Number of BGC,389,330
+NRPS,No of Family,273,33
+NRPS_PKS_Hybrid,No of Family,1,1
+PKSI,No of Family,59,13
+PKS_Others,No of Family,148,39
+Terpene,No of Family,207,40
+RiPPs,No of Family,237,83
+Other,No of Family,389,100

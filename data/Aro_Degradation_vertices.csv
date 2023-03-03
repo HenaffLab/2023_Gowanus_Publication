@@ -1,0 +1,73 @@
+name,size,labels,label2
+Aromatic Compound Degradation,4616.787061,,1
+Benzoate Degradation,53.439012,Benzoate,2
+Benzoyl-CoA Degradation,118.372954,Benzoyl-CoA,3
+Catechol Degradation,1077.481708,Catechol,4
+Chloroaromatic Compound Degradation,122.294992,Chloroaromatic Compound,5
+Gallate Degradation,338.553217,Gallate ,6
+Mandelate Degradation,18.9831447,Mandelate ,7
+Naphthalene Degradation,0.452381,Naphthalene,8
+Nicotinate Degradation,45.312562,Nicotinate,9
+Nitroaromatic Compound Degradation ,86.652858,Nitroaromatic Compound,10
+Phenolic Compound Degradation,556.127489,Phenolic Compound ,11
+Toluene Degradation,1298.430643,Toluene,12
+Urate Degradation,121.12316,Urate ,13
+Vanillin Degradation,13.833414,Vanillin,14
+Nitrobenzoate Degradation,86.652858,,15
+Phenylacetate Degradation,59.547656,,
+Phenylpropanoid Derivative Degradation,301.830189,,17
+Protocatechuate Degradation,166.610792,,18
+s-Triazine Degredation,3.302334,,
+Chlorobenzoate Degradation,103.22069,,
+meta cleavage pathway of aromatic compounds,53.439012,,
+benzoyl-CoA degradation I (aerobic),43.9842,,
+benzoyl-CoA degradation II (anaerobic),74.388754,,
+aromatic compounds degradation via &beta;-ketoadipate,160.93244,,24
+catechol degradation I (meta-cleavage pathway),333.763323,,25
+catechol degradation II (meta-cleavage pathway),182.44061,,26
+catechol degradation III (ortho-cleavage pathway),160.93244,,27
+catechol degradation to &beta;-ketoadipate,115.0738,,
+catechol degradation to 2-oxopent-4-enoate II,124.339095,,
+4-chlorobenzoate degradation,103.22069,,
+chlorosalicylate degradation,19.074302,,
+gallate degradation I,19.110593,,
+gallate degradation II,23.673394,,
+gallate degradation III (anaerobic),295.76923,,34
+mandelate degradation I,8.5030557,,
+mandelate degradation to acetyl-CoA,10.480089,,
+naphthalene degradation (aerobic),0.452381,,
+nicotinate degradation I,6.172192,,
+nicotinate degradation III,39.14037,,
+2-nitrobenzoate degradation I,86.652858,,
+phenylacetate degradation I (aerobic),59.547656,,
+3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation,76.25554,,
+3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate,24.836518,,
+3-phenylpropanoate degradation,12.629146,,
+4-coumarate degradation (anaerobic),163.68336,,45
+superpathway of phenylethylamine degradation,24.425625,,
+protocatechuate degradation I (meta-cleavage pathway),35.625121,,
+protocatechuate degradation II (ortho-cleavage pathway),130.985671,,
+superpathway of atrazine degradation,3.302334,,
+cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate,24.836518,,
+superpathway of aerobic toluene degradation,8.98344,,
+toluene degradation I (aerobic) (via o-cresol),530.3399,,52
+toluene degradation II (aerobic) (via 4-methylcatechol),530.3399,,53
+toluene degradation III (aerobic) (via p-cresol),69.101308,,
+toluene degradation IV (aerobic) (via catechol),20.658995,,
+toluene degradation VI (anaerobic),139.0071,,
+superpathway of purines degradation in plants,121.12316,,
+superpathway of vanillin and vanillate degradation,5.223357,,
+vanillin and vanillate degradation I,5.223357,,
+vanillin and vanillate degradation II,3.3867,,
+2-aminophenol degradation,40.725141,,
+4-hydroxyacetophenone degradation,3.1016633,,
+4-hydroxyphenylacetate degradation,89.076384,,
+4-methylcatechol degradation (ortho cleavage),192.08849,,64
+4-nitrophenol degradation II,2.326591,,
+anaerobic aromatic compound degradation (Thauera aromatica),30.808513,,
+biphenyl degradation,39.284586,,
+methylgallate degradation,29.397822,,
+naphthalene degradation to acetyl-CoA,0.839706,,
+p-cumate degradation,11.7137,,
+superpathway of salicylate degradation,106.96556,,
+syringate degradation,219.40137,,73

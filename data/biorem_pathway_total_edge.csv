@@ -1,0 +1,15 @@
+from,to
+.,Degradation/Utilization/Assimilation
+.,Detoxification
+.,Biosynthesis
+Biosynthesis,Aromatic Compound Biosynthesis
+Aromatic Compound Biosynthesis,4-Hydroxybenzoate Biosynthesis
+Aromatic Compound Biosynthesis,Chorismate Biosynthesis
+Degradation/Utilization/Assimilation,C1 Compound Utilization and Assimilation
+C1 Compound Utilization and Assimilation,Formaldehyde Assimilation
+C1 Compound Utilization and Assimilation,Formaldehyde Oxidation
+Degradation/Utilization/Assimilation,Alcohol Degradation
+Alcohol Degradation,Glycerol Degradation
+Detoxification,Arsenic Compound Detoxification
+Arsenic Compound Detoxification,Arsenate Detoxification
+Degradation/Utilization/Assimilation,Aromatic Compound Degradation
