@@ -1,0 +1,70 @@
+---
+title: "Figure7"
+author: "Chandrima Bhattacharya"
+date: "11/14/2021"
+output: html_document
+---
+
+```{r}
+#Importing Necessary Libraries for the Code
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(RColorBrewer))
+suppressPackageStartupMessages(library(fmsb))
+suppressPackageStartupMessages(library(reshape2))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(plyr))
+suppressPackageStartupMessages(library(gridExtra))
+```
+
+```{r}
+# Plot defining 13 known BGCs
+pdf(file="PDF_Images/Fig7B.pdf", width=8, height=6)
+bgc <- read.csv("data/BGC_def.csv")
+bgc$Link <- NULL
+bgc_df = melt(bgc, id = c("BGC_ID", "Type"))
+#bgc_df[bgc_df$value==0,] <- NA
+bgc_df[bgc_df <= 0] <- NA #convert records with less than or equal to 0 to NA
+bgc_df<- na.omit(bgc_df)
+ggplot(bgc_df, aes(variable, forcats::fct_rev(BGC_ID), fill = Type, size=value)) + 
+  geom_point(aes(fill = Type, size=value), alpha = 0.75, shape = 21) + 
+  labs( x= "Known Gene Functionality", y = "BGC ID")  + 
+  theme(legend.key=element_blank(), 
+  axis.text.x = element_text(angle = 90, vjust = 0.3, hjust = 1), 
+  legend.text = element_text(size = 10, colour ="black"), legend.position = "right",  
+  legend.title = element_text(size = 12), legend.justification = 'top') +  
+  scale_x_discrete(limits = rev(levels(bgc_df$variable))) 
+dev.off()
+```
+
+
+
+```{r}
+df <- read.csv("data/BGC-bar.csv", header=T)
+df.m <- melt(df, id.vars = c("BGC_Type", "Condition"))
+df.family <- df.m[df.m$Condition=="No of Family",]
+df.family$variable <- factor(df.family$variable, levels = rev(unique(df.family$variable)))
+a1 <- ggplot(df.family, aes(fill=variable, x=-value, y=BGC_Type)) + 
+  geom_bar(position="stack", stat="identity") + 
+  theme_bw() +scale_fill_manual(values = c("#bae4b3", "#74c476")) +
+theme(axis.text.y=element_blank(),
+      axis.ticks.y=element_blank(), legend.position="bottom", axis.title.y=element_blank()) + expand_limits(x=c(-700,0))
+```
+
+```{r}
+df.BGC <- df.m[df.m$Condition=="Number of BGC",]
+df.BGC$variable <- factor(df.BGC$variable, levels = rev(unique(df.BGC$variable)))
+a2<- ggplot(df.BGC, aes(fill=variable, x=value, y=BGC_Type)) + 
+  geom_bar(position="stack", stat="identity") + 
+  theme_bw() +scale_fill_manual(values = c("#bdd7e7", "#6baed6")) + theme(legend.position="bottom", axis.ticks.y=element_blank(),
+                                                                  axis.title.y=element_blank()) + expand_limits(x=c(0,700))
+```
+
+```{r}
+pdf(file="PDF_Images/Fig7A.pdf", width=8, height=6)
+grid.arrange(a1, a2,
+    widths=c(0.4,0.55),
+    ncol=2
+)
+dev.off()
+```
+
