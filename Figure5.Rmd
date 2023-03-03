@@ -1,0 +1,108 @@
+---
+title: "Figure5"
+author: "Chandrima Bhattacharya"
+date: "11/14/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Importing Necessary Libraries for the Code
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(reshape2))
+suppressPackageStartupMessages(library(plot.matrix))
+suppressPackageStartupMessages(library(ggalt))
+suppressPackageStartupMessages(library(scales))
+suppressPackageStartupMessages(library(packcircles))
+suppressPackageStartupMessages(library(fmsb))
+suppressPackageStartupMessages(library(RColorBrewer))
+suppressPackageStartupMessages(library(scales))
+suppressPackageStartupMessages(library(ggraph))
+suppressPackageStartupMessages(library(igraph))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(viridis))
+suppressPackageStartupMessages(library(data.tree))
+```
+
+```{r}
+#Circular packing for Aromatic Compounds
+edges <- read_csv("data/Aro_Degradation_edge.csv")
+vertices <- read_csv("data/Aro_Degradation_vertices.csv")
+pdf(file="PDF_Images/Fig3A.pdf", width=10, height=11)
+#edges <-flare$edges
+#vertices <- flare$vertices
+
+# Transform it in a 'tree' format
+tree <- FromDataFrameNetwork(edges)
+
+# Then I can easily get the level of each node, and add it to the initial data frame:
+mylevels <- data.frame( name=tree$Get('name'), level=tree$Get("level") )
+vertices <- vertices %>% 
+  left_join(., mylevels, by=c("name"="name"))
+
+# Now we can add label for level1 and 2 only for example:
+#vertices <- vertices %>% 
+#  mutate(new_label=ifelse(level==2, name, NA))
+mygraph <- graph_from_data_frame( edges, vertices=vertices )
+
+# Make the graph
+ggraph(mygraph, layout = 'circlepack', weight=size) + 
+  geom_node_circle(aes(fill = as.factor(depth),   color = as.factor(depth) )) +
+  scale_fill_manual(values=c("0" ="white", "1" = magma(4)[2], "2" = magma(4)[3], "3" = magma(4)[4], "4"=magma(4)[4])) + scale_color_manual( values=c("0" = "white", "1" = "black", "2" = "black", "3" = "black", "4"="black") ) +
+  #geom_node_label( aes(label=label2), size=1.5) +
+  theme_void() + 
+  theme(legend.position="FALSE", plot.margin = unit(rep(0,4), "cm"))
+#dev.off()
+```
+
+```{r}
+#Microbes associated with aromatic compounds
+pdf(file="PDF_Images/Fig3B.pdf", width=6, height=4)
+aro <- read_csv("data/Pathway_Microbes-Aro_Deg.csv")
+u1 <- unique(unlist(aro[, c("to", "from")]))
+name <- data.frame(matrix(unlist(u1)))
+graph <- graph_from_data_frame(aro, name, directed = TRUE)
+
+g <- ggraph(graph, layout = 'linear', circular = T) +
+  scale_color_brewer(palette="BuPu") + 
+    geom_edge_link(aes(colour = factor(Sub_Type))) + 
+        scale_edge_color_brewer(palette = 'Set3') +
+  #geom_node_text(aes(label = name, family="sans"), repel = TRUE, size = 1.5) + 
+  geom_node_point() 
+plot(g, family="sans")
+dev.off()
+```
+
+```{r}
+#Degradation of other compounds
+edges <- read_csv("data/biorem_pathway_total_edge.csv")
+vertices <- read_csv("data/biorem_pathway_total_vertices.csv")
+
+pdf(file="PDF_Images/SuppFig4.pdf", width=7, height=7)
+# Transform it in a 'tree' format
+tree <- FromDataFrameNetwork(edges)
+
+# Then I can easily get the level of each node, and add it to the initial data frame:
+mylevels <- data.frame( name=tree$Get('name'), level=tree$Get("level") )
+vertices <- vertices %>% 
+  left_join(., mylevels, by=c("name"="name"))
+
+# Now we can add label for level1 and 2 only for example:
+#vertices <- vertices %>% 
+#  mutate(new_label=ifelse(level==2, name, NA))
+mygraph <- graph_from_data_frame( edges, vertices=vertices )
+
+# Make the graph
+ggraph(mygraph, layout = 'circlepack', weight=size) + 
+  geom_node_circle(aes(fill = as.factor(depth), color = as.factor(depth) )) +
+  scale_fill_manual(values=c("0" ="white", "1" = viridis(4)[1], "2" = viridis(4)[2], "3" = viridis(4)[3], "4"=viridis(4)[4])) +
+  scale_color_manual( values=c("0" = "white", "1" = "black", "2" = "black", "3" = "black", "4"="black") ) +
+  #geom_node_label( aes(label=labels), size=1.5) +
+  theme_void() + 
+  theme(legend.position="FALSE", plot.margin = unit(rep(0,4), "cm"))
+dev.off()
+```
+
