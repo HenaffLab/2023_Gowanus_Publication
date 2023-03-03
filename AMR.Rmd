@@ -1,0 +1,62 @@
+---
+title: "Figure6"
+author: "Chandrima Bhattacharya"
+date: "11/14/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Importing Necessary Libraries for the Code
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(reshape2))
+suppressPackageStartupMessages(library(plot.matrix))
+suppressPackageStartupMessages(library(ggalt))
+suppressPackageStartupMessages(library(RColorBrewer))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(packcircles))
+```
+
+```{r}
+amr_mechanism <- read_csv("data/megares_amr_class_rpkmg.csv")
+amr_class <- read_csv("data/megares_amr_mech_rpkmg.csv")
+amr_mech<- colnames(amr_mechanism[,-1])
+amr_mech <- data.frame("amr_mechanism"=amr_mech)
+amr_mech$value <- colSums(amr_mechanism[,-1])
+```
+
+```{r}
+#Circular plot for AMR genes and their contribution
+pdf(file="PDF_Images/SuppFig3A.pdf", width=6, height=4)
+packing <- circleProgressiveLayout(amr_mech$value, sizetype='area')
+#packing$radius <- 0.95*packing$radius
+data <- cbind(amr_mech, packing)
+dat.gg <- circleLayoutVertices(packing, npoints=50)
+ 
+ggplot() + 
+  geom_polygon(data = dat.gg, aes(x, y, group = id, fill=as.factor(id)), colour = "black", alpha = 0.6) +
+  scale_fill_manual(values= c("coral1", "cadetblue1", "darkolivegreen4", "darkgoldenrod1", "lightpink1", "palevioletred1",
+                              "turquoise3", "yellowgreen", "slateblue2", "tan1", "palegreen", "indianred1", "blueviolet",
+                              "lightseagreen", "lightslategray", "dodgerblue3", "indianred")) +
+  #geom_text(data = data, aes(x, y, size=0.2, label = amr_mechanism)) +
+  theme_void() + 
+  theme(legend.position="none") +
+  coord_equal()
+dev.off()
+```
+
+```{r}
+#Box plot for AMR mechanism
+pdf(file="PDF_Images/SuppFig3B.pdf", width=6, height=4)
+colnames(amr_class)[1] <- "sample_name"
+amr_long <- gather(amr_class, amr_mechanism, abundance,-sample_name)
+amr_long <- filter(amr_long, abundance != 0)
+g <- ggplot(amr_long, aes(y=amr_mechanism, x= -log(abundance), fill=amr_mechanism))  +
+  geom_boxplot(width=0.5) + theme_minimal() + geom_jitter() + 
+  theme(legend.position="none")
+plot(g, family="sans")
+dev.off()
+```
